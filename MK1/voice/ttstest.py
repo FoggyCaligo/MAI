@@ -1,17 +1,18 @@
 import pyttsx3
 
-# TTS 엔진 초기화
+# 엔진 초기화
 engine = pyttsx3.init()
 
 # 사용 가능한 음성 목록 가져오기
 voices = engine.getProperty('voices')
 
-
-
-#window + ctrl + n -> 새 음성(선희) 다운 가능.
-# 각 음성의 정보 출력
-print("\n\n")
-
-
+# 'sunhi' 음성을 찾기
 for voice in voices:
-    print(f"ID: {voice.id} - Name: {voice.name} - Lang: {voice.languages} \n")
+    if 'sunhi' in voice.name.lower():
+        engine.setProperty('voice', voice.id)
+        print("found")
+        break
+
+# 텍스트를 음성으로 변환
+engine.say("안녕하세요, 저는 선희 음성입니다.")
+engine.runAndWait()

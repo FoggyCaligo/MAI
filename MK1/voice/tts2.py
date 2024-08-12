@@ -1,7 +1,7 @@
 import pyttsx3
 import threading
 import time
-
+#https://y3850.tistory.com/1934220
 class TTSManager:
     def __init__(self):
         self.engine = pyttsx3.init()
@@ -9,6 +9,7 @@ class TTSManager:
         self.thread = None
 
         voices = self.engine.getProperty('voices')
+        print(voices)
         self.engine.setProperty('voice',voices[0].id)
 
 
